@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#31502b">
+  <meta name="description" content="Ваш маленький уютный сад. Выращивайте растения, собирайте урожай и открывайте новые сорта.">
+  <title>Farm Zone — уютный сад</title>
+  <link rel="preload" href="./assets/garden-reference.png" as="image" fetchpriority="high">
+  <link rel="preload" href="./assets/header-reference.png" as="image">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main id="viewport" aria-label="Farm Zone — игра о саде">
+    <div id="frame">
+      <div id="garden" class="garden">
+        <img class="scene" src="./assets/garden-reference.png" width="768" height="1376" alt="Уютный сад с шестью грядками, ягодным кустом, резервуаром воды и теплицей" fetchpriority="high" draggable="false">
+        <header class="topbar" aria-label="Профиль и ресурсы">
+          <img class="header-art" src="./assets/header-reference.png" width="352" height="70" alt="" draggable="false">
+          <span id="coin-count" class="counter coin-count" hidden></span>
+          <span id="cr-count" class="counter cr-count" hidden></span>
+          <span id="level-count" class="level-count" hidden></span>
+          <div id="xp-fill" class="xp-fill" hidden></div>
+          <button class="hit profile-hit" data-action="profile" aria-label="Профиль садовода, уровень 5"></button>
+          <button class="hit coins-hit" data-action="storage" aria-label="Игровые монеты: 1240. Открыть склад"></button>
+          <button class="hit plus-hit" data-action="storage" aria-label="Продать урожай и получить монеты"></button>
+          <button class="hit cr-hit" data-action="wallet" aria-label="Кошелёк, 45 CR"></button>
+        </header>
+        <button class="hit quest-hit" data-action="quest" aria-label="Задание: вырастить первый ягодный куст, 0 из 1"></button>
+        <div id="quest-progress" class="quest-progress" hidden></div>
+        <div id="quest-complete" class="quest-complete" hidden>Награда за первый урожай</div>
+        <button class="hit tank-hit" data-action="water" aria-label="Резервуар воды"></button>
+        <button class="hit greenhouse-hit" data-action="greenhouse" aria-label="Открыть теплицу"></button>
+        <div id="plant-effects" class="plant-effects" aria-hidden="true"></div>
+        <button class="hit plot-hit plot-0" data-action="plot" data-id="0" aria-label="Мята, готова к сбору"></button>
+        <button class="hit plot-hit plot-1" data-action="plot" data-id="1" aria-label="Клубника, растёт"></button>
+        <button class="hit plot-hit plot-2" data-action="plot" data-id="2" aria-label="Золотая малина, готова к сбору"></button>
+        <button class="hit plot-hit plot-3" data-action="plot" data-id="3" aria-label="Свободная грядка, посадить"></button>
+        <button class="hit plot-hit plot-4" data-action="plot" data-id="4" aria-label="Базилик, готов к сбору"></button>
+        <button class="hit plot-hit plot-5" data-action="plot" data-id="5" aria-label="Закрытая грядка"></button>
+        <span id="plant-button-state" class="plant-button-state" hidden></span>
+        <div id="ready-caption" class="ready-caption" hidden></div>
+        <button class="hit harvest-hit" data-action="harvest" aria-label="Собрать весь готовый урожай"></button>
+        <button class="hit plant-hit" data-action="plant" aria-label="Посадить растение"></button>
+        <button class="hit upgrade-hit" data-action="upgrades" aria-label="Улучшения сада"></button>
+        <button class="hit water-hit" data-action="water" aria-label="Получить запас воды"></button>
+        <nav class="bottom-nav" aria-label="Основные разделы">
+          <button class="hit nav-hit" data-action="garden" aria-label="Сад" aria-current="page"></button>
+          <button class="hit nav-hit" data-action="plants" aria-label="Растения"></button>
+          <button class="hit nav-hit" data-action="tasks" aria-label="Задания"></button>
+          <button class="hit nav-hit" data-action="friends" aria-label="Друзья"></button>
+          <button class="hit nav-hit" data-action="wallet" aria-label="Кошелёк"></button>
+        </nav>
+        <div id="particles" class="particles" aria-hidden="true"></div>
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+        <div id="modal-root" class="modal-root" hidden>
+          <div class="scrim" data-action="close"></div>
+          <section id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1">
+            <div class="sheet-grip"></div>
+            <button class="close-button" data-action="close" aria-label="Закрыть окно">×</button>
+            <div id="sheet-content"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
